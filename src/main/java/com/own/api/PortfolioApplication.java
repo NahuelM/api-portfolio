@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 public class PortfolioApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PortfolioApplication.class, args);
+		System.out.println("API START");
 	}
 
 }
