@@ -1,4 +1,4 @@
 package com.own.api.dto.Modify;
 
-public class productModifyDTO {
+public class UserModifyDTO {
 }
