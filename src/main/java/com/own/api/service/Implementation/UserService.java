@@ -4,15 +4,17 @@ import com.own.api.dto.Entry.UserEntryDTO;
 import com.own.api.dto.Modify.UserModifyDTO;
 import com.own.api.dto.Out.UserOutDTO;
 import com.own.api.model.User;
-import com.own.api.repository.UserRepository;
+import com.own.api.repository.imp.UserRepository;
 import com.own.api.service.IUserService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserService implements IUserService {
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;

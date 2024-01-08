@@ -13,32 +13,36 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "price")
     private Double price;
+    @Column(name = "description")
     private String description;
+    @Column(name = "admissionDate")
     private Date admissionDate;
 
-    @OneToMany(mappedBy = "Products", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
     @JsonIgnore
+    @JoinTable(name = "Category")
     private Set<Category> categories = new HashSet<>();
+    @Column(name = "imagesUrls")
     private LinkedList<String> imagesUrl = new LinkedList<>();
 
-    public Product(Long id, String name, Double price, String description, Date admissionDate, Set<Category> categories, LinkedList<String> imagesUrl) {
+    public Product(Long id, String name, Double price, String description, Date admissionDate, LinkedList<String> imagesUrl) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.admissionDate = admissionDate;
-        this.categories = categories;
         this.imagesUrl = imagesUrl;
     }
 
-    public Product(String name, Double price, String description, Date admissionDate,  Set<Category> categories, LinkedList<String> imagesUrl) {
+    public Product(String name, Double price, String description, Date admissionDate, LinkedList<String> imagesUrl) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.admissionDate = admissionDate;
-        this.categories = categories;
         this.imagesUrl = imagesUrl;
     }
 

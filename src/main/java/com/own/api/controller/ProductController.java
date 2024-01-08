@@ -1,12 +1,8 @@
 package com.own.api.controller;
 
-import com.own.api.dto.Entry.CategoryEntryDTO;
 import com.own.api.dto.Entry.ProductEntryDTO;
-import com.own.api.dto.Modify.CategoryModifyDTO;
 import com.own.api.dto.Modify.ProductModifyDTO;
-import com.own.api.dto.Out.CategoryOutDTO;
 import com.own.api.dto.Out.ProductOutDTO;
-import com.own.api.service.ICategoryService;
 import com.own.api.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

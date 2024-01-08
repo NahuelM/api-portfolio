@@ -3,6 +3,8 @@ package com.own.api.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "Category")
 public class Category {
@@ -13,6 +15,9 @@ public class Category {
 
     private String name;
 
+    @JoinTable(name = "Products")
+    @ManyToMany(mappedBy = "categories")
+    private Set<Product> products;
     public Category(Long id, String name) {
         Id = id;
         this.name = name;

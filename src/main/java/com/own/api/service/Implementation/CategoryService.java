@@ -4,7 +4,7 @@ import com.own.api.dto.Entry.CategoryEntryDTO;
 import com.own.api.dto.Modify.CategoryModifyDTO;
 import com.own.api.dto.Out.CategoryOutDTO;
 import com.own.api.model.Category;
-import com.own.api.repository.CategoryRepository;
+import com.own.api.repository.imp.CategoryRepository;
 import com.own.api.service.ICategoryService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;

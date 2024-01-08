@@ -4,15 +4,17 @@ import com.own.api.dto.Entry.ProductEntryDTO;
 import com.own.api.dto.Modify.ProductModifyDTO;
 import com.own.api.dto.Out.ProductOutDTO;
 import com.own.api.model.Product;
-import com.own.api.repository.ProductRepository;
+import com.own.api.repository.imp.ProductRepository;
 import com.own.api.service.IProductService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductService implements IProductService {
 
     private final ProductRepository productRepository;
