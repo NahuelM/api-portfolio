@@ -1,17 +1,15 @@
 package com.own.api.service.Implementation;
 
-import com.own.api.dto.Entry.CategoryEntryDTO;
 import com.own.api.dto.Entry.ProductEntryDTO;
 import com.own.api.dto.Modify.ProductModifyDTO;
-import com.own.api.dto.Out.CategoryOutDTO;
 import com.own.api.dto.Out.ProductOutDTO;
-import com.own.api.model.Category;
 import com.own.api.model.Product;
 import com.own.api.repository.ProductRepository;
 import com.own.api.service.IProductService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -21,6 +19,7 @@ public class ProductService implements IProductService {
     private final ModelMapper modelMapper;
     private final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
 
+    @Autowired
     public ProductService(ProductRepository productRepository, ModelMapper modelMapper) {
         this.productRepository = productRepository;
         this.modelMapper = modelMapper;
@@ -69,14 +68,13 @@ public class ProductService implements IProductService {
 
     @Override
     public ProductOutDTO update(ProductModifyDTO product) {
-        Product productRecibed = modelMapper.map(product, Product.class);
-        productRepository.findById(product.getId()).orElse(null);
-        Product productToUpdate;
+        Product productReceived = modelMapper.map(product, Product.class);
+        Product productToUpdate = productRepository.findById(product.getId()).orElse(null);
         ProductOutDTO productOutDTO = null;
 
-        if (productRecibed != null) {
+        if (productToUpdate != null) {
 
-            productToUpdate = productRecibed;
+            productToUpdate = productReceived;
             productRepository.save(productToUpdate);
 
             productOutDTO = modelMapper.map(productToUpdate, ProductOutDTO.class);

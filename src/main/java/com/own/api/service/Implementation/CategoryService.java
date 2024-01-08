@@ -70,13 +70,13 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public CategoryOutDTO update(CategoryModifyDTO category) {
-        Category categoryRecibed = modelMapper.map(category, Category.class);
+        Category categoryReceived = modelMapper.map(category, Category.class);
         Category categoryToUpdate = categoryRepository.findById(category.getId()).orElse(null);
         CategoryOutDTO categoryOutDTO = null;
 
         if (categoryToUpdate != null) {
 
-            categoryToUpdate = categoryRecibed;
+            categoryToUpdate = categoryReceived;
             categoryRepository.save(categoryToUpdate);
 
             categoryOutDTO = modelMapper.map(categoryToUpdate, CategoryOutDTO.class);

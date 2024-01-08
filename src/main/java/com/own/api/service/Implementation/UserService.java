@@ -1,18 +1,15 @@
 package com.own.api.service.Implementation;
 
-import com.own.api.dto.Entry.ProductEntryDTO;
 import com.own.api.dto.Entry.UserEntryDTO;
 import com.own.api.dto.Modify.UserModifyDTO;
-import com.own.api.dto.Out.ProductOutDTO;
 import com.own.api.dto.Out.UserOutDTO;
-import com.own.api.model.Product;
 import com.own.api.model.User;
-import com.own.api.repository.ProductRepository;
 import com.own.api.repository.UserRepository;
 import com.own.api.service.IUserService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -21,6 +18,7 @@ public class UserService implements IUserService {
     private final ModelMapper modelMapper;
     private final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
+    @Autowired
     public UserService(UserRepository userRepository, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
@@ -69,14 +67,13 @@ public class UserService implements IUserService {
 
     @Override
     public UserOutDTO update(UserModifyDTO user) {
-        User userRecibed = modelMapper.map(user, User.class);
-        userRepository.findById(user.getId()).orElse(null);
-        User userToUpdate;
+        User userReceived = modelMapper.map(user, User.class);
+        User userToUpdate = userRepository.findById(user.getId()).orElse(null);
         UserOutDTO userOutDTO = null;
 
-        if (userRecibed != null) {
+        if (userToUpdate != null) {
 
-            userToUpdate = userRecibed;
+            userToUpdate = userReceived;
             userRepository.save(userToUpdate);
 
             userOutDTO = modelMapper.map(userToUpdate, UserOutDTO.class);
