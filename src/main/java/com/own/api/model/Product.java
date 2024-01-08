@@ -23,21 +23,23 @@ public class Product {
     private Set<Category> categories = new HashSet<>();
     private LinkedList<String> imagesUrl = new LinkedList<>();
 
-    public Product(Long id, String name, Double price, String description, Date admissionDate, Set<Category> categories) {
+    public Product(Long id, String name, Double price, String description, Date admissionDate, Set<Category> categories, LinkedList<String> imagesUrl) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.admissionDate = admissionDate;
         this.categories = categories;
+        this.imagesUrl = imagesUrl;
     }
 
-    public Product(String name, Double price, String description, Date admissionDate,  Set<Category> categories) {
+    public Product(String name, Double price, String description, Date admissionDate,  Set<Category> categories, LinkedList<String> imagesUrl) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.admissionDate = admissionDate;
         this.categories = categories;
+        this.imagesUrl = imagesUrl;
     }
 
     public Product() {}
@@ -89,6 +91,10 @@ public class Product {
 
     public Set<Category> getCategories() {
         return categories;
+    }
+
+    public LinkedList<String> getImagesUrl() {
+        return imagesUrl;
     }
 
     @Override

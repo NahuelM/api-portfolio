@@ -87,7 +87,7 @@ public class CategoryService implements ICategoryService {
             LOGGER.error("category not registered");
 
         }
-        return null;
+        return categoryOutDTO;
     }
 
     private Category dtoInToEntity(CategoryEntryDTO categoryEntryDTO) {
