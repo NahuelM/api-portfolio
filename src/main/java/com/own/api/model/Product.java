@@ -24,7 +24,6 @@ public class Product {
 
     @ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
     @JsonIgnore
-    @JoinTable(name = "Category")
     private Set<Category> categories = new HashSet<>();
     @Column(name = "imagesUrls")
     private LinkedList<String> imagesUrl = new LinkedList<>();

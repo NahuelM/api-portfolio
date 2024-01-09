@@ -10,6 +10,9 @@ public class UserModifyDTO {
     private String avatarImgUrl;
     private String password;
 
+    public UserModifyDTO() {
+    }
+
     public UserModifyDTO(String email, String name, String avatarImgUrl, String password) {
         this.email = email;
         this.name = name;

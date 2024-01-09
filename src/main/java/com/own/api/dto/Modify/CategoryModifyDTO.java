@@ -10,6 +10,10 @@ public class CategoryModifyDTO {
     private String name;
     @NotNull(message = "is necessary the id from category to modify's")
     private Long id;
+
+    public CategoryModifyDTO() {
+    }
+
     public CategoryModifyDTO(String name, Long id) {
         this.name = name;
         this.id = id;

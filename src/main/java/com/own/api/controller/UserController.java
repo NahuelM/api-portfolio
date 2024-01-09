@@ -7,6 +7,9 @@ import com.own.api.dto.Modify.UserModifyDTO;
 import com.own.api.dto.Out.ProductOutDTO;
 import com.own.api.dto.Out.UserOutDTO;
 import com.own.api.service.IUserService;
+import com.own.api.service.Implementation.DataLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +23,11 @@ import java.util.List;
 @Controller
 public class UserController {
     private final IUserService userService;
-
+    private final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
     @Autowired
     public UserController(IUserService userService){
         this.userService = userService;
+        LOGGER.info("User controller created");
     }
 
     @GetMapping

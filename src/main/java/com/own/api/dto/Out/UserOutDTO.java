@@ -5,6 +5,9 @@ public class UserOutDTO {
     private String name;
     private String avatarImgUrl;
 
+    public UserOutDTO() {
+    }
+
     public UserOutDTO(String email, String name, String avatarImgUrl) {
         this.email = email;
         this.name = name;

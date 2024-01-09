@@ -4,6 +4,9 @@ public class CategoryOutDTO {
     private Long id;
     private String name;
 
+    public CategoryOutDTO() {
+    }
+
     public CategoryOutDTO(Long id, String name) {
         this.id = id;
         this.name = name;

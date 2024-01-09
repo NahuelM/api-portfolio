@@ -15,8 +15,10 @@ public class Category {
 
     private String name;
 
-    @JoinTable(name = "Products")
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany
+    @JoinTable(name = "Product_Category",
+            joinColumns = @JoinColumn(name = "Product_id"),
+            inverseJoinColumns = @JoinColumn(name = "Category_id"))
     private Set<Product> products;
     public Category(Long id, String name) {
         Id = id;
@@ -25,6 +27,9 @@ public class Category {
 
     public Category(String name) {
         this.name = name;
+    }
+
+    public Category() {
     }
 
     public Long getId() {

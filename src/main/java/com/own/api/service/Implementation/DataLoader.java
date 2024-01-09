@@ -17,19 +17,15 @@ public class DataLoader implements ApplicationRunner {
 
     private final Logger LOGGER = LoggerFactory.getLogger(DataLoader.class);
     private UserRepository userRepository;
-    private ProductRepository productRepository;
-    private CategoryRepository categoryRepository;
 
     @Autowired
-    public DataLoader(UserRepository userRepository, ProductRepository productRepository, CategoryRepository categoryRepository) {
+    public DataLoader(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.productRepository = productRepository;
-        this.categoryRepository = categoryRepository;
     }
 
 
     public void run(ApplicationArguments args) {
-        userRepository.save(new User(0L, "test@email.com", "12345678", "Pedro", UserRole.USER, null));
+        userRepository.save(new User(1L, "test@email.com", "12345678", "Pedro", UserRole.USER, null));
         LOGGER.info("Data loaded");
     }
 }

@@ -26,6 +26,9 @@ public class ProductEntryDTO {
     @NotNull(message = "admission date can't was null")
     private Date admissionDate;
 
+    public ProductEntryDTO() {
+    }
+
     public ProductEntryDTO(String name, Double price, String description, Set<CategoryEntryDTO> categories, LinkedList<String> imagesUrl, Date admissionDate) {
         this.name = name;
         this.price = price;

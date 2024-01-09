@@ -29,6 +29,9 @@ public class User {
         this.avatarImg = avatarImg;
     }
 
+    public User() {
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }

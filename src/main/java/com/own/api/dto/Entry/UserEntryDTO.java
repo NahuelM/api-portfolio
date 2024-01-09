@@ -10,6 +10,9 @@ public class UserEntryDTO {
     private UserRole role;
     private Long id;
 
+    public UserEntryDTO() {
+    }
+
     public UserEntryDTO(String password, String email, String name, String avatarImgUrl, UserRole role, Long id) {
         this.password = password;
         this.email = email;

@@ -12,6 +12,9 @@ public class ProductModifyDTO {
     private LinkedList<String> imagesUrl;
     private Date admissionDate;
 
+    public ProductModifyDTO() {
+    }
+
     public ProductModifyDTO(String name, String description, CategoryModifyDTO category, LinkedList<String> imagesUrl, Date admissionDate) {
         this.name = name;
         this.description = description;
