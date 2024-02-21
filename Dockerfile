@@ -11,7 +11,7 @@ COPY . .
 RUN mvn package
 
 # Etapa de producción
-FROM openjdk:17-jre-slim
+FROM maven:3.8.4-openjdk-17
 
 # Copia el artefacto construido desde la imagen del 'builder'
 COPY --from=builder /app/target/*.jar /app/app.jar
