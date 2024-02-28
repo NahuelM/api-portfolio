@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM maven:3.9.6-amazoncorretto-21
 VOLUME /tmp
 COPY src/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
